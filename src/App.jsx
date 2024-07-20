@@ -1,9 +1,20 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import React from "react";
 import LoginPage from "./pages/login";
+import Contact from "./pages/contact";
+import BoookPage from "./pages/book";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import HomePage from "./components/Home";
 
 const Layout = () => {
-	return <>Main Page</>;
+	return (
+		<div className="layout-app">
+			<Header />
+			<Outlet />
+			<Footer />
+		</div>
+	);
 };
 
 const router = createBrowserRouter([
@@ -11,6 +22,17 @@ const router = createBrowserRouter([
 		path: "/",
 		element: <Layout />,
 		errorElement: <div>404 Not Found</div>,
+		children: [
+			{ index: true, element: <HomePage /> },
+			{
+				path: "contact",
+				element: <Contact />,
+			},
+			{
+				path: "book",
+				element: <BoookPage />,
+			},
+		],
 	},
 	{
 		path: "/login",
