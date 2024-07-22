@@ -1,9 +1,8 @@
-import App from "./App";
 import React from "react";
-import { store } from "./redux/store";
-import { Provider } from "react-redux";
 import ReactDOM from "react-dom/client";
-import LoginPage from "./pages/login";
+import { Provider } from "react-redux";
+import App from "./App";
+import { store } from "./redux/store";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
